@@ -1,41 +1,38 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ระบบบัญชีร้านค้า</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
-</head>
 <body>
 
-<div id="app">
-  <aside class="sidebar">
-    <div class="brand">🏪 <span id="brandName">ร้านของฉัน</span></div>
-    <nav id="menu"></nav>
-    <div class="side-foot">v1.0 · ข้อมูลเก็บในเครื่อง</div>
-  </aside>
-
-  <main class="main">
-    <header class="topbar">
-      <h1 id="pageTitle">ภาพรวม</h1>
-      <div id="pageActions" class="row"></div>
-    </header>
-    <div id="view"></div>
-  </main>
-</div>
-
-<div id="modal" class="modal-bg hidden">
-  <div class="modal">
-    <div class="modal-head"><b id="modalTitle"></b><button onclick="closeModal()" class="btn-icon">✕</button></div>
-    <div id="modalBody"></div>
+<!-- ===== หน้าเข้าสู่ระบบ ===== -->
+<div id="authGate" class="auth-gate">
+  <div class="auth-box">
+    <h2>🏪 ระบบบัญชีร้านค้า</h2>
+    <p class="c-muted" style="margin-bottom:16px">เข้าสู่ระบบเพื่อใช้งานข้อมูลบนคลาวด์</p>
+    <div class="field"><label>อีเมล</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
+    <div class="field"><label>รหัสผ่าน</label><input id="authPass" type="password" placeholder="อย่างน้อย 6 ตัวอักษร"></div>
+    <div class="row" style="margin-bottom:10px">
+      <button class="btn" style="flex:1" onclick="doLogin()">เข้าสู่ระบบ</button>
+      <button class="btn ghost" style="flex:1" onclick="doRegister()">สมัครใหม่</button>
+    </div>
+    <button class="btn gray" style="width:100%" onclick="doGoogle()">เข้าสู่ระบบด้วย Google</button>
+    <p id="authMsg" class="c-red" style="margin-top:12px;font-size:13px;min-height:18px"></p>
   </div>
 </div>
 
+<div id="app" style="display:none">
+  <aside class="sidebar">
+    <div class="brand">🏪 <span id="brandName">ร้านของฉัน</span></div>
+    <nav id="menu"></nav>
+    <div class="side-foot">
+      <div id="syncBadge">☁️ พร้อมใช้งาน</div>
+      <div id="userEmail" style="margin:6px 0;word-break:break-all"></div>
+      <button class="btn ghost" style="width:100%;font-size:12px" onclick="doLogout()">ออกจากระบบ</button>
+    </div>
+  </aside>
+  ...ส่วน main เหมือนเดิมทุกอย่าง...
+</div>
+
+<div id="modal" class="modal-bg hidden">...เหมือนเดิม...</div>
 <div id="printArea"></div>
 
-<script src="/js/store.js"></script>
+<!-- ⚠️ ลบ <script src="/js/store.js"> ทิ้ง -->
 <script src="/js/app.js"></script>
+<script type="module" src="/js/firebase.js"></script>
 </body>
-</html>
