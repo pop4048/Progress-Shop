@@ -12,12 +12,14 @@ import {
 
 /* ---------- 🔧 วางค่าจาก Firebase Console ตรงนี้ ---------- */
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "000000000000",
-  appId: "1:000000000000:web:xxxxxxxxxxxx"
+  apiKey: "AIzaSyBBnOxO9-jCpjnPbZ7aBvCS8RHS3f5CiKQ",
+  authDomain: "business-model-aa097.firebaseapp.com",
+  databaseURL: "https://business-model-aa097-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "business-model-aa097",
+  storageBucket: "business-model-aa097.firebasestorage.app",
+  messagingSenderId: "872137791523",
+  appId: "1:872137791523:web:bf1e5e691ad0b6c8f83996",
+  measurementId: "G-QPB0D944LQ"
 };
 
 const app  = initializeApp(firebaseConfig);
