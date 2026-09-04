@@ -591,7 +591,7 @@ function backup(db){
     <input type="file" accept=".json" onchange="importData(this)" style="margin:10px 0">
     <hr style="margin:20px 0;border:0;border-top:1px solid #e2e8f0">
     <h3 class="c-red">⚠️ ล้างข้อมูลทั้งหมด</h3>
-    <button class="btn red" onclick="if(confirm('ลบข้อมูลทั้งหมดถาวร แน่ใจหรือไม่?')){DB.reset();location.hash='#/dashboard';location.reload()}">ล้างข้อมูล</button>
+    <button class="btn red" onclick="if(confirm('ลบข้อมูลทั้งหมดถาวร แน่ใจหรือไม่?')){DB.reset().then(()=>location.reload())}">ล้างข้อมูล</button>
   </div>`;
 }
 function exportData(){
@@ -603,8 +603,8 @@ function exportData(){
 function importData(input){
   const f = input.files[0]; if(!f) return;
   const r = new FileReader();
-  r.onload = e => { try { DB.set(JSON.parse(e.target.result)); alert('กู้คืนสำเร็จ ✅'); location.reload(); }
-                    catch { alert('ไฟล์ไม่ถูกต้อง'); } };
+  r.onload = e => { try { DB.set(JSON.parse(e.target.result)); alert('กู้คืนสำเร็จ ✅'); render(); }
+                  catch { alert('ไฟล์ไม่ถูกต้อง'); } };
   r.readAsText(f);
 }
 
