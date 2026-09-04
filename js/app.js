@@ -669,4 +669,4 @@ function filterTable(tid, q){
 }
 
 /* ================= Start ================= */
-buildMenu(); render();
+function startApp(){ buildMenu(); render(); }
