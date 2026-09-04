@@ -1,29 +1,32 @@
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f1f5f9; --card:#fff; --line:#e2e8f0; --text:#0f172a; --muted:#64748b;
-  --brand:#2563eb; --green:#16a34a; --red:#dc2626; --orange:#ea580c; --dark:#1e293b;
+/* --- ส่วนพื้นฐาน --- */
+body { font-family: sans-serif; margin: 0; background: #f8fafc; }
+.hidden { display: none !important; }
+.c-red { color: #dc2626; }
+.c-muted { color: #64748b; }
+
+/* --- หน้า Login --- */
+.auth-gate {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1e293b, #2563eb); padding: 16px; z-index: 1000;
 }
-body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--text);font-size:14px}
-#app{display:flex;min-height:100vh}
+.auth-box {
+    background: #fff; padding: 28px; border-radius: 16px; width: 100%; max-width: 380px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+.auth-box h2 { font-size: 20px; margin-top: 0; margin-bottom: 4px; }
+.field { margin-bottom: 15px; }
+.field label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+.field input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
+.btn { padding: 10px; cursor: pointer; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-weight: 600; }
+.btn.ghost { background: #e2e8f0; color: #333; }
+.btn.gray { background: #64748b; color: #fff; }
 
-/* ---------- Sidebar ---------- */
-.sidebar{width:230px;background:var(--dark);color:#cbd5e1;padding:16px 12px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
-.brand{color:#fff;font-weight:700;font-size:17px;margin-bottom:18px;padding:0 8px}
-.nav-group{font-size:11px;color:#64748b;margin:14px 8px 6px;letter-spacing:.5px}
-.nav-item{display:block;padding:8px 10px;border-radius:8px;cursor:pointer;text-decoration:none;color:#cbd5e1;margin-bottom:2px}
-.nav-item:hover{background:#334155;color:#fff}
-.nav-item.active{background:var(--brand);color:#fff;font-weight:600}
-.side-foot{margin-top:auto;font-size:11px;color:#475569;padding:10px 8px}
-
-/* ---------- Layout ---------- */
-.main{flex:1;padding:22px 26px;max-width:1400px}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px}
-.topbar h1{font-size:22px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.grid{display:grid;gap:14px}
-.g4{grid-template-columns:repeat(4,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
-@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2{grid-template-columns:1fr}}
-@media(max-width:720px){#app{flex-direction:column}.sidebar{width:100%;height:auto;position:static}.main{padding:14px}.g4{grid-template-columns:1fr}}
+/* --- Layout หลัก (Sidebar) --- */
+#app { display: flex; height: 100vh; }
+.sidebar { width: 250px; background: #1e293b; color: white; display: flex; flex-direction: column; padding: 20px; }
+.brand { font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; }
+.side-foot { margin-top: auto; padding-top: 20px; border-top: 1px solid #334155; font-size: 13px; }
+#main { flex: 1; padding: 20px; overflow-y: auto; }
 
 /* ---------- Card / KPI ---------- */
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
