@@ -1,38 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบบัญชีร้านค้า</title>
+    <!-- ตรวจสอบว่าไฟล์ style.css อยู่ที่ /assets/style.css หรือไม่ -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
 <body>
 
-<!-- ===== หน้าเข้าสู่ระบบ ===== -->
-<div id="authGate" class="auth-gate">
-  <div class="auth-box">
-    <h2>🏪 ระบบบัญชีร้านค้า</h2>
-    <p class="c-muted" style="margin-bottom:16px">เข้าสู่ระบบเพื่อใช้งานข้อมูลบนคลาวด์</p>
-    <div class="field"><label>อีเมล</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
-    <div class="field"><label>รหัสผ่าน</label><input id="authPass" type="password" placeholder="อย่างน้อย 6 ตัวอักษร"></div>
-    <div class="row" style="margin-bottom:10px">
-      <button class="btn" style="flex:1" onclick="doLogin()">เข้าสู่ระบบ</button>
-      <button class="btn ghost" style="flex:1" onclick="doRegister()">สมัครใหม่</button>
+    <!-- หน้า Login -->
+    <div id="authGate" class="auth-gate">
+        <div class="auth-box">
+            <h2>🏪 ระบบบัญชีร้านค้า</h2>
+            <p class="c-muted" style="margin-bottom:16px">เข้าสู่ระบบเพื่อใช้งานข้อมูลบนคลาวด์</p>
+            <div class="field"><label>อีเมล</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
+            <div class="field"><label>รหัสผ่าน</label><input id="authPass" type="password" placeholder="อย่างน้อย 6 ตัวอักษร"></div>
+            <div class="row" style="margin-bottom:10px; display:flex; gap:10px;">
+                <button class="btn" style="flex:1" onclick="doLogin()">เข้าสู่ระบบ</button>
+                <button class="btn ghost" style="flex:1" onclick="doRegister()">สมัครใหม่</button>
+            </div>
+            <button class="btn gray" style="width:100%" onclick="doGoogle()">เข้าสู่ระบบด้วย Google</button>
+            <p id="authMsg" class="c-red" style="margin-top:12px;font-size:13px;min-height:18px"></p>
+        </div>
     </div>
-    <button class="btn gray" style="width:100%" onclick="doGoogle()">เข้าสู่ระบบด้วย Google</button>
-    <p id="authMsg" class="c-red" style="margin-top:12px;font-size:13px;min-height:18px"></p>
-  </div>
-</div>
 
-<div id="app" style="display:none">
-  <aside class="sidebar">
-    <div class="brand">🏪 <span id="brandName">ร้านของฉัน</span></div>
-    <nav id="menu"></nav>
-    <div class="side-foot">
-      <div id="syncBadge">☁️ พร้อมใช้งาน</div>
-      <div id="userEmail" style="margin:6px 0;word-break:break-all"></div>
-      <button class="btn ghost" style="width:100%;font-size:12px" onclick="doLogout()">ออกจากระบบ</button>
+    <!-- หน้าแอปหลัก -->
+    <div id="app" style="display:none">
+        <aside class="sidebar">
+            <div class="brand">🏪 <span id="brandName">ร้านของฉัน</span></div>
+            <nav id="menu"></nav>
+            <div class="side-foot">
+                <div id="syncBadge">☁️ พร้อมใช้งาน</div>
+                <div id="userEmail" style="margin:6px 0;word-break:break-all"></div>
+                <button class="btn ghost" style="width:100%;font-size:12px" onclick="doLogout()">ออกจากระบบ</button>
+            </div>
+        </aside>
+        <main id="main">
+            <!-- เนื้อหาแอปของคุณที่นี่ -->
+        </main>
     </div>
-  </aside>
-  ...ส่วน main เหมือนเดิมทุกอย่าง...
-</div>
 
-<div id="modal" class="modal-bg hidden">...เหมือนเดิม...</div>
-<div id="printArea"></div>
+    <div id="modal" class="modal-bg hidden"></div>
+    <div id="printArea"></div>
 
-<!-- ⚠️ ลบ <script src="/js/store.js"> ทิ้ง -->
-<script src="/js/app.js"></script>
-<script type="module" src="/js/firebase.js"></script>
+    <script src="js/app.js"></script>
+    <script type="module" src="js/firebase.js"></script>
 </body>
+</html>
